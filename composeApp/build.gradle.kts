@@ -54,6 +54,7 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation("io.github.dangolchirag:adbs:1.0.0")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

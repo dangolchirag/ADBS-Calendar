@@ -18,32 +18,34 @@ import org.jetbrains.compose.resources.painterResource
 
 import adbscalendar.composeapp.generated.resources.Res
 import adbscalendar.composeapp.generated.resources.compose_multiplatform
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import org.infinity.lib.DateConverter
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
+        var date by remember { mutableStateOf("") }
+        LaunchedEffect(Unit) {
+            val convertedDateBS = DateConverter.adToBs(1990, 6, 22)
+            println("Converted Date in bs: $convertedDateBS")
+            val convertedDateAD = DateConverter.bsToAd(
+                convertedDateBS.year,
+                convertedDateBS.month,
+                convertedDateBS.day
+            )
+            println("Converted Date in ad: $convertedDateAD")
+            date = convertedDateAD.toString()
+        }
+
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+        ) { paddingValues ->
+            Text(
+                modifier = Modifier.padding(paddingValues).fillMaxSize(),
+                text = date
+            )
         }
     }
 }
