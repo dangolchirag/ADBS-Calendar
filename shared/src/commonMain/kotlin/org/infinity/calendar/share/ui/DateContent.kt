@@ -61,23 +61,23 @@ fun DateContent(
                 vertical = 16.dp
             )
         )
-//        DatePickerContent(
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .clip(
-//                    shape = MaterialTheme.shapes.small
-//                ),
-//            selectedDate = state.selectedItem,
-//            displayedMonth = state.displayedMonth,
-//            onDateSelectionChange = {
-//                state.select(it)
-//                onDateSelected(it)
-//            },
-//            onDisplayedMonthChange = {
-//                state.displayedMonth = it
-//            },
-//            calendarModel = calendarModel,
-//            monthsPagerState = monthPagerState
-//        )
+        DatePickerContent(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(
+                    shape = MaterialTheme.shapes.small
+                ),
+            selectedDate = state.selection,
+            displayedMonth = state.displayedMonth,
+            onDateSelectionChange = {
+                state.select(it)
+                onDateSelected(it)
+            },
+            onDisplayedMonthChange = {
+                state.displayedMonth = it
+            },
+            calendarModel = calendarModel,
+            monthsPagerState = monthPagerState
+        )
     }
 }

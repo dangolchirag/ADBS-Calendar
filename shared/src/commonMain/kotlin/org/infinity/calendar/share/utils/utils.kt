@@ -1,6 +1,10 @@
 package org.infinity.calendar.share.utils
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
@@ -90,3 +94,11 @@ fun CalendarModel.todayFormattedADDate(): String {
         "Invalid date: $this" // Fallback for parsing errors
     }
 }
+
+@Composable
+fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier =
+    clickable(
+        interactionSource = remember { MutableInteractionSource() },
+        indication = null,
+        onClick = onClick
+    )
