@@ -85,7 +85,10 @@ kotlin {
                 implementation(libs.kotlinx.datetime)
                 implementation("io.github.dangolchirag:adbs:1.0.0")
                 implementation(compose.components.resources)
+                implementation(compose.foundation)
                 implementation(compose.runtime)
+                implementation(compose.material3)
+                implementation(libs.kotlinx.datetime)
             }
         }
 

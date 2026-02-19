@@ -6,6 +6,7 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.number
 import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
+import org.infinity.calendar.share.utils.now
 import org.infinity.lib.BSPointer
 import org.infinity.lib.DateConverter
 import org.infinity.lib.Year
@@ -53,42 +54,3 @@ data class CalendarDate(
     }
 }
 
-@OptIn(ExperimentalTime::class)
-fun CalendarDate.toEpochMillis(): Long {
-    val ad = DateConverter.bsToAd(year, month, dayOfMonth)
-    val adDate = LocalDate(ad.year, ad.month, ad.day)
-
-    return LocalDateTime(
-        year = adDate.year,
-        month = adDate.month,
-        day = adDate.day,
-        hour = 0,
-        minute = 0
-    ).toInstant(TimeZone.UTC).toEpochMilliseconds()
-}
-
-@OptIn(ExperimentalTime::class)
-fun LocalDate.Companion.now(): LocalDate =
-    Clock.System.now()
-        .toLocalDateTime(TimeZone.currentSystemDefault())
-        .date
-enum class CalendarType(val res: String) {
-    BS(res = "AD"),
-    AD(res = "AD");
-
-    companion object {
-        private val typeMap =
-            enumValues<CalendarType>().associateBy { it.res.lowercase() }
-
-        fun get(typeName: String): CalendarType =
-            CalendarType.typeMap[typeName.trim().lowercase()] ?: BS
-
-        val list: List<CalendarType>
-            get() = entries.toList().map { it }
-
-    }
-}
-
-fun CalendarType.isBS(): Boolean {
-    return this == CalendarType.BS
-}

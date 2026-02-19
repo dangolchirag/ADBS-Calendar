@@ -5,8 +5,11 @@ data class CalendarMonth(
     val month: Int,
     val numberOfDays: Int,
     val daysFromStartOfWeekToFirstOfMonth: Int,
-    val pageNum: Int
+    val pageNum: Int,
+    val startDate: Int,
+    val endDate: Int
 ) : Comparable<CalendarMonth> {
+
     override operator fun compareTo(other: CalendarMonth): Int {
         return this.pageNum.compareTo(other.pageNum)
     }
