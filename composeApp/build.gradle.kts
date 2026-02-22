@@ -55,7 +55,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
 
-            implementation("io.github.dangolchirag:adbs:1.0.0")
+            implementation("io.github.dangolchirag:adbs:1.0.2")
 
             implementation(projects.shared)
         }

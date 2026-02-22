@@ -83,7 +83,7 @@ kotlin {
                 // Add KMP dependencies here
 
                 implementation(libs.kotlinx.datetime)
-                implementation("io.github.dangolchirag:adbs:1.0.0")
+                implementation("io.github.dangolchirag:adbs:1.0.2")
                 implementation(compose.components.resources)
                 implementation(compose.foundation)
                 implementation(compose.runtime)
