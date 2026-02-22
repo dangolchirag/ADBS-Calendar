@@ -8,7 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -22,7 +21,6 @@ import org.infinity.calendar.share.ui.DateContent
 import org.infinity.lib.DateConverter
 
 @Composable
-@Preview
 fun App() {
     MaterialTheme {
         var date by remember { mutableStateOf("") }

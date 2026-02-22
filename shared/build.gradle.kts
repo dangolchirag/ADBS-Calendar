@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
@@ -80,15 +78,14 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
+                implementation(libs.material3)
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.adbs)
+                implementation(libs.components.resources)
+                implementation(libs.foundation)
+                implementation(libs.runtime)
 
-                implementation(libs.kotlinx.datetime)
-                implementation("io.github.dangolchirag:adbs:1.0.2")
-                implementation(compose.components.resources)
-                implementation(compose.foundation)
-                implementation(compose.runtime)
-                implementation(compose.material3)
-                implementation(libs.kotlinx.datetime)
-                implementation(compose.materialIconsExtended)
+                implementation(libs.material.icons.extended)
             }
         }
 

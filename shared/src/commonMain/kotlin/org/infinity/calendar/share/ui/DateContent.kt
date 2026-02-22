@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 import org.infinity.calendar.share.calendarModel.CalendarModel
 import org.infinity.calendar.share.data.CalendarDate
 import org.infinity.calendar.share.state.DatePickerState
-import org.infinity.calendar.share.state.DatePickerStateImpl
+
 import org.infinity.calendar.share.utils.todayFormattedADDate
 import org.infinity.calendar.share.utils.todayFormattedBSDate
 
@@ -43,7 +43,7 @@ fun DateContent(
                     horizontal = 16.dp
                 )
                 .clip(
-                    shape = MaterialTheme.shapes.small
+                    shape = MaterialTheme.shapes.large
                 ),
             bsDate = calendarModel.todayFormattedBSDate(),
             adDate = calendarModel.todayFormattedADDate(),
